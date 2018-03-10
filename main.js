@@ -69,6 +69,8 @@ $('#dropey').click(function(){
              fillColor: 'blue',
              fillOpacity: 0.8
            })
+
+           circle.addTo(mymap).bindPopup(''+shower.name+'');
             //add to map
             circle.addTo(mymap);
         }

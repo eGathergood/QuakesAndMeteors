@@ -14,27 +14,34 @@ $('#shakey').click(function(){
 
     console.log(qResult)
 
-    result.features.forEach(function(quake) {
+    qResult.features.forEach(function(quake) {
       //get coordinates for each quakes
-      var mLng = quake.geometry.coordinates[0];
-      var mLat = quake.geometry.coordinates[1];
+      var qLng = quake.geometry.coordinates[0];
+      var qLat = quake.geometry.coordinates[1];
       //get magnitude
-      var mMag = parseFloat(quake.properties.mag);
+      var qMag = parseFloat(quake.properties.mag);
 
-      var circle = L.circle([mLat, mLng], mMag * 10000, {
-        color: 'red',
-        opacity: 0,
-        fillColor: 'red',
-        fillOpacity: 0.8
-      })
-      //add to map
-      circle.addTo(mymap);
+
+
+      if (qLng && qLat && qMag) {
+              var circle = L.circle([qLat, qLng], qMag * 10000, {
+                color: 'red',
+                opacity: 0,
+                fillColor: 'red',
+                fillOpacity: 0.8
+              })
+              //add to map
+              circle.addTo(mymap);
+            }
 
     })
 
   });
 
 });
+
+
+
 
 //dropey on-click
 
@@ -46,12 +53,29 @@ $('#dropey').click(function(){
 
   console.log(mResult)
 
-  result.geolocation.forEach(function(shower) {
+  mResult.forEach(function(shower) {
     //get coordinates for each shower
-    var Slng = shower.latitude;
-    var Slat = shower.longitude;
+    var mLat = shower.geolocation.latitude;
+    var mLng = shower.geolocation.longitude;
 
-    console.console.log(Slng);
+    console.log(mLng);
+
+//  if (mLng && mLat ) {
+//            var circle = L.circle([mLat, mLng], 1, {
+//              color: 'blue',
+//              opacity: 0,
+//              fillColor: 'blue',
+//              fillOpacity: 0.8
+//            })
+            //add to map
+//            circle.addTo(mymap);
+//          }
+
+
+
+
+
+
 
 
   });

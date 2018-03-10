@@ -14,6 +14,22 @@ $('#shakey').click(function(){
 
     console.log(result)
 
+    result.features.forEach(function(quake) {
+      //get coordinates for each quakes
+      var lng = quake.geometry.coordinates[0];
+      var lat = quake.geometry.coordinates[1];
+
+      var circle = L.circle([lat, lng], 1, {
+        color: 'red',
+        opacity: 0,
+        fillColor: 'red',
+        fillOpacity: 0.8
+      })
+      //add to map
+      circle.addTo(mymap);
+
+    })
+
   });
 
 });

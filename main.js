@@ -10,16 +10,18 @@ $('#shakey').click(function(){
 
   console.log("getting quakes");
 
-  $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson", function(result) {
+  $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson", function(qResult) {
 
-    console.log(result)
+    console.log(qResult)
 
     result.features.forEach(function(quake) {
       //get coordinates for each quakes
-      var lng = quake.geometry.coordinates[0];
-      var lat = quake.geometry.coordinates[1];
+      var mLng = quake.geometry.coordinates[0];
+      var mLat = quake.geometry.coordinates[1];
+      //get magnitude
+      var mMag = parseFloat(quake.properties.mag);
 
-      var circle = L.circle([lat, lng], 1, {
+      var circle = L.circle([mLat, mLng], mMag * 10000, {
         color: 'red',
         opacity: 0,
         fillColor: 'red',
@@ -32,4 +34,26 @@ $('#shakey').click(function(){
 
   });
 
+});
+
+//dropey on-click
+
+$('#dropey').click(function(){
+
+  console.log("getting showers");
+
+  $.getJSON("https://data.nasa.gov/resource/gh4g-9sfh.json", function(mResult) {
+
+  console.log(mResult)
+
+  result.geolocation.forEach(function(shower) {
+    //get coordinates for each shower
+    var Slng = shower.latitude;
+    var Slat = shower.longitude;
+
+    console.console.log(Slng);
+
+
+  });
+});
 });

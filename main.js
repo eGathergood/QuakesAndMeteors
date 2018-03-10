@@ -54,24 +54,29 @@ $('#dropey').click(function(){
   console.log(mResult)
 
   mResult.forEach(function(shower) {
-    //get coordinates for each shower
+
+    if(shower.geolocation) {
+    //  get coordinates for each shower
     var mLat = shower.geolocation.latitude;
     var mLng = shower.geolocation.longitude;
+}
 
-    console.log(mLng);
 
-//  if (mLng && mLat ) {
-//            var circle = L.circle([mLat, mLng], 1, {
-//              color: 'blue',
-//              opacity: 0,
-//              fillColor: 'blue',
-//              fillOpacity: 0.8
-//            })
+  if (mLng && mLat ) {
+           var circle = L.circle([mLat, mLng], 25000, {
+             color: 'blue',
+             opacity: 0,
+             fillColor: 'blue',
+             fillOpacity: 0.8
+           })
             //add to map
-//            circle.addTo(mymap);
-//          }
+            circle.addTo(mymap);
+        }
 
-
+        if(shower.geolocation) {
+              var mLat = shower.geolocation.latitude;
+              var mLng = shower.geolocation.longitude;
+            }
 
 
 

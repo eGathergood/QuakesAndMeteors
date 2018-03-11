@@ -2,6 +2,32 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  height: 100%;
 
 }
-#mapid { height: 400px; }
+
+h4 {
+  font-family: mainFont;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+
+
+#mapid {
+  height: 400px;
+}
+
+.modal-content{
+		text-align:center;
+
+	}
+
+.modal-header{
+	text-align:center;
+  margin: 0 auto;
+
+	}

@@ -1,28 +1,20 @@
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-  height: 100%;
 
+
+
+.container-fluid {
+  padding-left: 0rem;
+  padding-right: 0rem;
+  overflow: hidden;
 }
-
-h4 {
-  font-family: mainFont;
-}
-
-body {
-  margin: 0;
-  height: 100%;
-}
-
 
 
 #mapid {
   height: 400px;
 }
 
-.modal-content{
+.mainContent{
 		text-align:center;
+
 
 	}
 
